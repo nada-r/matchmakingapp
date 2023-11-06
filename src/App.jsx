@@ -3,6 +3,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button } from "@/components/ui/button"
 
 function App() {
     const [formData, setFormData] = useState({
@@ -66,7 +67,9 @@ function App() {
                     placeholder="Texte 3"
                     required
                 />
-                <button type="submit">Envoyer</button>
+                <Button className="w-1/2 mx-auto bg-gray-800 text-white" type="submit">
+                    Send
+      </Button>
             </form>
         </div>
     );
