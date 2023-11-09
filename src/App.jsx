@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function App() {
     const [formData, setFormData] = useState({
-        nom: '',
-        texte1: '',
-        texte2: '',
-        texte3: '',
+        Name: '',
+        Expertise1: '',
+        Expertise2: '',
+        Expertise3: '',
     });
 
     const handleInputChange = (e) => {
@@ -16,54 +17,66 @@ function App() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const endpoint = 'https://sheet.best/api/sheets/365c5ca5-a63e-4a5c-80cd-787072830fa7'; // Your actual endpoint
         try {
-            // Remplacez 'http://localhost:5000/data' par l'URL de votre serveur
-            const response = await axios.post('http://localhost:5000/data', formData);
+            const response = await axios.post(endpoint, [formData]);
             console.log(response.data);
-            alert('Données envoyées avec succès !');
+            alert('Data submitted successfully!');
+            // Optionally reset the form
+            setFormData({
+                Name: '',
+                Expertise1: '',
+                Expertise2: '',
+                Expertise3: '',
+            });
         } catch (error) {
-            console.error('Erreur lors de l\'envoi des données', error);
-            alert('Erreur lors de l\'envoi des données.');
+            console.error('There was an error submitting your data:', error);
+            alert('There was an error submitting your data.');
         }
     };
 
     return (
-        <div className="App">
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="nom"
-                    placeholder="Nom"
-                    value={formData.nom}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="texte1"
-                    placeholder="Texte 1"
-                    value={formData.texte1}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="texte2"
-                    placeholder="Texte 2"
-                    value={formData.texte2}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="texte3"
-                    placeholder="Texte 3"
-                    value={formData.texte3}
-                    onChange={handleInputChange}
-                    required
-                />
-                <button type="submit">Envoyer</button>
-            </form>
+        <div className="container">
+            <form onSubmit={handleSubmit}> {/* Add this line */}
+                <div className="input-group">
+                    <label htmlFor="Name">Name</label>
+                    <input
+                        name="Name"
+                        id="Name"
+                        placeholder="Enter Name"
+                        value={formData.Name}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <fieldset className="input-group">
+                    <legend>Your expertise</legend>
+                    <label htmlFor="Expertise1">Expertise 1</label>
+                    <input
+                        name="Expertise1"
+                        id="Expertise1"
+                        placeholder="Enter Expertise 1"
+                        value={formData.Expertise1}
+                        onChange={handleInputChange}
+                    />
+                    <label htmlFor="Expertise2">Expertise 2</label>
+                    <input
+                        name="Expertise2"
+                        id="Expertise2"
+                        placeholder="Enter Expertise 2"
+                        value={formData.Expertise2}
+                        onChange={handleInputChange}
+                    />
+                    <label htmlFor="Expertise3">Expertise 3</label>
+                    <input
+                        name="Expertise3"
+                        id="Expertise3"
+                        placeholder="Enter Expertise 3"
+                        value={formData.Expertise3}
+                        onChange={handleInputChange}
+                    />
+                </fieldset>
+                <button className="button" type="submit">Send</button>
+            </form> {/* Close the form tag */}
         </div>
     );
 }
