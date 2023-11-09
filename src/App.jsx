@@ -1,9 +1,5 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Button } from "@/components/ui/button"
 
 function App() {
     const [formData, setFormData] = useState({
@@ -13,67 +9,63 @@ function App() {
         texte3: '',
     });
 
-    const handleChange = (e) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            // Remplacez 'http://localhost:5000/data' par l'URL de votre serveur
             const response = await axios.post('http://localhost:5000/data', formData);
             console.log(response.data);
+            alert('Données envoyées avec succès !');
         } catch (error) {
             console.error('Erreur lors de l\'envoi des données', error);
+            alert('Erreur lors de l\'envoi des données.');
         }
     };
 
     return (
-        <div>
-            <h1>Formulaire Simple</h1>
+        <div className="App">
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="nom"
-                    value={formData.nom}
-                    onChange={handleChange}
                     placeholder="Nom"
+                    value={formData.nom}
+                    onChange={handleInputChange}
                     required
                 />
                 <input
                     type="text"
                     name="texte1"
-                    value={formData.texte1}
-                    onChange={handleChange}
                     placeholder="Texte 1"
+                    value={formData.texte1}
+                    onChange={handleInputChange}
                     required
                 />
                 <input
                     type="text"
                     name="texte2"
-                    value={formData.texte2}
-                    onChange={handleChange}
                     placeholder="Texte 2"
+                    value={formData.texte2}
+                    onChange={handleInputChange}
                     required
                 />
                 <input
                     type="text"
                     name="texte3"
-                    value={formData.texte3}
-                    onChange={handleChange}
                     placeholder="Texte 3"
+                    value={formData.texte3}
+                    onChange={handleInputChange}
                     required
                 />
-                <Button className="w-1/2 mx-auto bg-gray-800 text-white" type="submit">
-                    Send
-      </Button>
+                <button type="submit">Envoyer</button>
             </form>
         </div>
     );
 }
 
 export default App;
-
