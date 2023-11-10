@@ -8,6 +8,9 @@ function App() {
         Expertise1: '',
         Expertise2: '',
         Expertise3: '',
+        Know1: '',
+        Know2: '',
+        Know3: '',
     });
 
     const handleInputChange = (e) => {
@@ -28,6 +31,9 @@ function App() {
                 Expertise1: '',
                 Expertise2: '',
                 Expertise3: '',
+                Know1: '',
+                Know2: '',
+                Know3: '',
             });
         } catch (error) {
             console.error('There was an error submitting your data:', error);
@@ -58,6 +64,17 @@ function App() {
                         value={formData.Expertise1}
                         onChange={handleInputChange}
                     />
+                    <div className="flex-1 ml-2">
+                        <label htmlFor="Know1">Years of Experience</label>
+                        <input
+                            type="text"
+                            name="Know1"
+                            id="Know1"
+                            placeholder="I would like to discuss about"
+                            value={formData.Experience1}
+                            onChange={handleInputChange}
+                        />
+                    </div>
                     <label htmlFor="Expertise2">Expertise 2</label>
                     <input
                         name="Expertise2"
@@ -72,6 +89,36 @@ function App() {
                         id="Expertise3"
                         placeholder="Enter Expertise 3"
                         value={formData.Expertise3}
+                        onChange={handleInputChange}
+                    />
+                </fieldset>
+                <fieldset className="input-group">
+                    <legend>Questions for Founders</legend>
+                    <label htmlFor="Question1">Question 1</label>
+                    <input
+                        type="text"
+                        name="Know1"
+                        id="Know1"
+                        placeholder="I would like to discuss about"
+                        value={formData.Question1}
+                        onChange={handleInputChange}
+                    />
+                    <label htmlFor="Question2">Question 2</label>
+                    <input
+                        type="text"
+                        name="Know2"
+                        id="Know2"
+                        placeholder="Also I'm looking for"
+                        value={formData.Question2}
+                        onChange={handleInputChange}
+                    />
+                    <label htmlFor="Question3">Question 3</label>
+                    <input
+                        type="text"
+                        name="Know3"
+                        id="Know3"
+                        placeholder="And finally I am curious about"
+                        value={formData.Question3}
                         onChange={handleInputChange}
                     />
                 </fieldset>
