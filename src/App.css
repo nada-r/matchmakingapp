@@ -44,14 +44,14 @@
 }
 
 .container {
-    max-width: 600px;
+    max-width: 90%; /* Adjust the width as desired */
     margin: 0 auto;
     padding: 20px;
-    background-color: white; /* Ensure container is white */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: black; /* Text color for content in the container */
-}
+    display: flex; /* Use flexbox to place children side by side */
+    justify-content: space-between; /* Add space between the fieldsets */
+    gap: 20px; /* This adds some space between your fieldsets */
+    flex-wrap: wrap; /* Allows fieldsets to wrap on smaller screens */
+  }
   
   .input-group {
     margin-bottom: 20px;
