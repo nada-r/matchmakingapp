@@ -5,12 +5,10 @@ import './App.css';
 function App() {
     const [formData, setFormData] = useState({
         Name: '',
-        Expertise1: '',
-        Expertise2: '',
-        Expertise3: '',
-        Know1: '',
-        Know2: '',
-        Know3: '',
+        ExpertiseTweet: '',
+        Question1: '',
+        Question2: '',
+        Question3: '',
     });
 
     const handleInputChange = (e) => {
@@ -28,12 +26,10 @@ function App() {
             // Optionally reset the form
             setFormData({
                 Name: '',
-                Expertise1: '',
-                Expertise2: '',
-                Expertise3: '',
-                Know1: '',
-                Know2: '',
-                Know3: '',
+                ExpertiseTweet: '',
+                Question1: '',
+                Question2: '',
+                Question3: '',
             });
         } catch (error) {
             console.error('There was an error submitting your data:', error);
@@ -57,29 +53,13 @@ function App() {
                 </div>
                 <div className="form-row">
                     <fieldset className="input-group">
-                        <legend>Your expertise</legend>
-                        <label htmlFor="ExpertiseTweet">Present your expertise in a Tweet</label>
+                        <legend>Present your expertise in a Tweet</legend>
+                        <label htmlFor="ExpertiseTweet">Explain what you do in 240 characters</label>
                         <input
-                            name="Expertise1"
-                            id="Expertise1"
-                            placeholder="Enter Expertise 1"
-                            value={formData.Expertise1}
-                            onChange={handleInputChange}
-                        />
-                        <label htmlFor="Expertise2">Expertise 2</label>
-                        <input
-                            name="Expertise2"
-                            id="Expertise2"
-                            placeholder="Enter Expertise 2"
-                            value={formData.Expertise2}
-                            onChange={handleInputChange}
-                        />
-                        <label htmlFor="Expertise3">Expertise 3</label>
-                        <input
-                            name="Expertise3"
-                            id="Expertise3"
-                            placeholder="Enter Expertise 3"
-                            value={formData.Expertise3}
+                            name="ExpertiseTweet"
+                            id="ExpertiseTweet"
+                            placeholder="Driving change with #SustainableBusiness, #SupplyChainOptimization, and #RenewableEnergy. Making business eco-friendly!"
+                            value={formData.ExpertiseTweet}
                             onChange={handleInputChange}
                         />
                     </fieldset>
@@ -88,8 +68,8 @@ function App() {
                         <label htmlFor="Question1">Question 1</label>
                         <input
                             type="text"
-                            name="Know1"
-                            id="Know1"
+                            name="Question1"
+                            id="Question1"
                             placeholder="I would like to discuss about"
                             value={formData.Question1}
                             onChange={handleInputChange}
@@ -97,8 +77,8 @@ function App() {
                         <label htmlFor="Question2">Question 2</label>
                         <input
                             type="text"
-                            name="Know2"
-                            id="Know2"
+                            name="Question2"
+                            id="Question2"
                             placeholder="Also I'm looking for"
                             value={formData.Question2}
                             onChange={handleInputChange}
@@ -106,8 +86,8 @@ function App() {
                         <label htmlFor="Question3">Question 3</label>
                         <input
                             type="text"
-                            name="Know3"
-                            id="Know3"
+                            name="Question3"
+                            id="Question3"
                             placeholder="And finally I am curious about"
                             value={formData.Question3}
                             onChange={handleInputChange}
