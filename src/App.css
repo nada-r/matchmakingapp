@@ -83,6 +83,19 @@
     color: white; /* Set placeholder text color to white */
     opacity: 0.5; /* Override any default browser settings to ensure the color shows */
   }
+
+  textarea#tweetInput {
+    width: 95%; /* Takes most of the width inside the fieldset */
+    max-width: 95%; /* Ensures it does not overflow the fieldset */
+    min-height: 150px; /* Minimum height to handle multiple lines of text */
+    padding: 0.5em; /* Padding inside the textarea */
+    border: 1px solid #ccc; /* Border to match your design */
+    border-radius: 4px; /* Slight rounding of corners */
+    margin: 0.5em 0; /* Margin for spacing outside the textarea */
+    resize: vertical; /* Allows the user to vertically resize the textarea */
+    font-family: Arial, sans-serif; /* Optional: sets the font inside the textarea */
+  }
+  
   
   .form-row {
     display: flex;

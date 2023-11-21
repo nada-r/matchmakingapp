@@ -53,14 +53,16 @@ function App() {
                 </div>
                 <div className="form-row">
                     <fieldset className="input-group">
-                        <legend>Present your expertise in a Tweet</legend>
-                        <label htmlFor="ExpertiseTweet">Explain what you do in 240 characters</label>
-                        <input
+                        <legend>Introduce your expertise</legend>
+                        <label htmlFor="ExpertiseTweet">Explain what you do in a tweet</label>
+                        <textarea
                             name="ExpertiseTweet"
-                            id="ExpertiseTweet"
+                            id="tweetInput"
                             placeholder="Driving change with #SustainableBusiness, #SupplyChainOptimization, and #RenewableEnergy. Making business eco-friendly!"
                             value={formData.ExpertiseTweet}
                             onChange={handleInputChange}
+                            rows="4"
+                            className="tweetInput"
                         />
                     </fieldset>
                     <fieldset className="input-group">
