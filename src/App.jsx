@@ -96,7 +96,7 @@ function App() {
                                 />
                             </fieldset>
                         </div>
-                        <button className="button" type="submit">Get a match</button>
+                        <button className="button" type="submit">Meet founders</button>
                     </form>
                 )}
         </div>
