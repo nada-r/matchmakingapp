@@ -66,7 +66,7 @@ function App() {
                                 />
                             </fieldset>
                             <fieldset className="input-group">
-                                <legend>Questions for Founders</legend>
+                                <legend>What are the top three challenges you currently face</legend>
                                 <label htmlFor="Question1">Question 1</label>
                                 <input
                                     type="text"
